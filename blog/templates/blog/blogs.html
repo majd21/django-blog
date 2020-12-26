@@ -1,0 +1,31 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <h1>Blogs</h1>
+    <hr>
+
+  {% for blog in blogs %}
+  <div class="well p-2 mb-3 border border-secondary">
+    <div class="media">
+      <a class="pull-left" href="{{ blog.image.url }}">
+        <div class="img-cover">
+          <img class="media-object mr-3 img-thumbnail" src="{{ blog.image.url }}">
+        </div>
+    </a>
+    <div class="media-body">
+      <h4 class="media-heading">{{blog.title}}</h4>
+        <p class="text-right">By {{blog.user}}</p>
+        <p>{{blog.body}}</p>
+        <ul class="list-inline list-unstyled">
+      <li><small><i class="glyphicon glyphicon-calendar"></i> {{blog.time}}</small></li>
+    </ul>
+    <a href="#" class="btn btn-primary">Read more...</a>
+     </div>
+  </div>
+</div>
+{% endfor %}
+</div>
+
+{% endblock %}

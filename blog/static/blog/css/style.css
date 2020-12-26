@@ -1,0 +1,31 @@
+
+#showcase {
+    height: 100vh !important;
+    background-image: url('../img/showcase2.jpg');
+    background-size: cover;
+    background-position: 0;
+    background-position-y: -400px;
+    color: #333;
+    border-radius: 0 !important;
+}
+
+
+#showcase hr {
+    background-color: #333;
+}
+
+.img-cover {
+    height: 400px;
+    width: 400px;
+    margin-right: 20px;
+    background-color: #bbb;
+}
+
+.img-cover img {
+    height: 100%;
+    width: 100%;
+}
+
+#editModal {
+    width: 1000px !important;
+}

@@ -1,0 +1,128 @@
+{% extends 'blog/base.html' %} {% block content %}
+
+<div class="container">
+  <h1 class="mt-2">Profile of {{user.username}}</h1>
+  <hr />
+  <a href="{% url 'createblog' %}" class="btn btn-info">Create a new blog</a>
+  <hr />
+  {% for blog in userblogs %}
+  <div class="well p-2 mb-3 border border-secondary">
+    <div class="media">
+      <a class="pull-left" href="{{ blog.image.url }}">
+        <div class="img-cover">
+          <img
+            class="media-object mr-3 img-thumbnail"
+            src="{{ blog.image.url }}"
+          />
+        </div>
+      </a>
+      <div class="media-body">
+        <h4 class="media-heading">{{blog.title}}</h4>
+        <p class="text-right">By {{blog.user}}</p>
+        <p>{{blog.body}}</p>
+        <ul class="list-inline list-unstyled">
+          <li>
+            <small
+              ><i class="glyphicon glyphicon-calendar"></i> {{blog.time}}</small
+            >
+          </li>
+        </ul>
+        <div class="row">
+          <a href="#" class="btn btn-primary mr-1">Read more...</a>
+          <a
+            href="#"
+            class="btn btn-danger mr-1"
+            data-toggle="modal"
+            data-target="#deleteModal"
+            >Delete blog</a
+          >
+          <a href="#" data-toggle="modal"
+          data-target="#editModal" class="btn btn-success">Edit blog</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete Modal -->
+  <div class="modal" id="deleteModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Delete</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure for delete this blog?</p>
+        </div>
+        <div class="modal-footer">
+          <form
+            method="POST"
+            class="form-group"
+            action="{% url 'deleteblog' blog.id %}"
+          >
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary">Yes</button>
+          </form>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            No
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit modal -->
+  <div class="modal" id="editModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form
+          method="POST"
+          class="form-group"
+          action="{% url 'editblog' blog.id %}"
+        >
+          {% csrf_token %}
+          <div class="modal-body">
+            {% for field in form %}
+            <div class="form-group">
+              <label>{{ field.label_tag }}</label>
+              <br />
+              {{ field }}
+            </div>
+            {% endfor %}
+            <div class="alert alert-dismissible alert-warning">
+              <button type="button" class="close" data-dismiss="alert">
+                &times;
+              </button>
+              <p class="mb-0">{{error}}</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Edit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  {% endfor %}
+</div>
+
+{% endblock %}
