@@ -21,7 +21,7 @@
         <ul class="list-inline list-unstyled">
       <li><small><i class="glyphicon glyphicon-calendar"></i> {{blog.time}}</small></li>
     </ul>
-    <a href="#" class="btn btn-primary">Read more...</a>
+    <a href="{% url 'viewblog' blog.id %}" class="btn btn-primary">Read more...</a>
      </div>
   </div>
 </div>

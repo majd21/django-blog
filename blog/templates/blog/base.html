@@ -9,6 +9,7 @@
       href="https://bootswatch.com/4/journal/bootstrap.min.css"
     />
     <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+    <script src="https://kit.fontawesome.com/04da29eaff.js" crossorigin="anonymous"></script>
     <title>Majid Nayeb</title>
   </head>
   <body>
@@ -100,6 +101,19 @@
   <!-- End Modal -->
 
     <div>{% block content %} {% endblock %}</div>
+
+    <footer class="p-2 text-center bg-primary">
+      <div>
+        <a class="text-dark mr-1" href="">
+          <i  class="fab fa-github fa-lg"></i>
+        </a>
+        <a class="text-dark mr-1" href="">
+          <i class="fab fa-linkedin fa-lg"></i>
+        </a>
+      </div>
+      <hr>
+      <p>&copy;	2020 Majid Nayeb.All Rights Reserved</p>
+    </footer>
   </body>
   <script
     src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

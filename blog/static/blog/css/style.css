@@ -7,6 +7,7 @@
     background-position-y: -400px;
     color: #333;
     border-radius: 0 !important;
+
 }
 
 
@@ -18,14 +19,37 @@
     height: 400px;
     width: 400px;
     margin-right: 20px;
-    background-color: #bbb;
+    background-color: #fff;
+    text-align: center;
 }
 
 .img-cover img {
     height: 100%;
-    width: 100%;
+    width: auto;
 }
 
 #editModal {
     width: 1000px !important;
+}
+
+.showimgblog {
+    height: 500px !important;
+    width: 500px;
+    margin-right: 20px;
+    background-color: #bbb;
+}
+
+.showimgblog img {
+    height: auto;
+    width: 100%;
+}
+
+.project-img {
+    height: 300px !important;
+    width: 430px !important;
+}
+
+.project-img img {
+    height: 100%;
+    width: auto;
 }

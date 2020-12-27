@@ -1,0 +1,45 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+<div class="container mt-3">
+
+    <h1>{{blog.title}}</h1>
+    <hr>
+    <div class="showimgblog">
+        <img class="img-thumbnail" src="{{blog.image.url}}" alt="{{blog.title}}">
+    </div>
+    
+    <br>
+    <small>By {{blog.user.username}}</small>
+    <br>
+    <small>{{blog.time}}</small>
+    <hr>
+    <p>{{blog.body}}</p>
+    <hr>
+
+    <form method="POST">
+        {% csrf_token %}
+    {% for field in form %}
+        <div class="form-group">
+            <label>{{ field.label_tag }}</label>
+            <br>
+            {{ field }}
+        </div>
+    {% endfor %}
+    <button class="btn btn-primary" type="submit">Add your Comment</button>
+    </form>
+    <hr>
+    <h3>Comments of this blog</h3>
+    {% for comment in blog.comments.all %}
+    <div class="well ml-4">
+        <h4>{{comment.name}}</h4>
+        <small>{{comment.time}}
+        </small>
+        <p>{{comment.body}}</p>
+        <hr>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
