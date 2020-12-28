@@ -8,12 +8,14 @@
       rel="stylesheet"
       href="https://bootswatch.com/4/journal/bootstrap.min.css"
     />
-    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
-    <script src="https://kit.fontawesome.com/04da29eaff.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}" />
+    <script
+      src="https://kit.fontawesome.com/04da29eaff.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Majid Nayeb</title>
   </head>
   <body>
-
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <a class="navbar-brand" href="#">Majid Nayeb</a>
@@ -53,21 +55,25 @@
         </form>
         <ul class="navbar-nav">
           {% if user.is_authenticated %}
-            <li class="nav-item ml-3 mt-2">Hello {{ user.username }}</li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'profile' %}">Profile</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="modal" data-target="#logoutModal" href="#">Logout</a>
-            </li>
-          {% else %}
+          <li class="nav-item ml-3 mt-2">Hello {{ user.username }}</li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'signUp' %}"
-              >Sign Up
-            </a>
+            <a class="nav-link" href="{% url 'profile' %}">Profile</a>
           </li>
           <li class="nav-item">
-          <a class="nav-link" href="{% url 'login' %}">Login</a>
+            <a
+              class="nav-link"
+              data-toggle="modal"
+              data-target="#logoutModal"
+              href="#"
+              >Logout</a
+            >
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'signUp' %}">Sign Up </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Login</a>
           </li>
           {% endif %}
         </ul>
@@ -80,7 +86,12 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">Logout</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -92,27 +103,36 @@
               {% csrf_token %}
               <button type="submit" class="btn btn-primary">Yes</button>
             </form>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              No
+            </button>
           </div>
         </div>
       </div>
-  </div>
+    </div>
 
-  <!-- End Modal -->
+    <!-- End Modal -->
 
     <div>{% block content %} {% endblock %}</div>
-
-    <footer class="p-2 text-center bg-primary">
+    <div></div>
+    <footer id="footer" class="p-2 text-center bg-primary">
       <div>
-        <a class="text-dark mr-1" href="">
-          <i  class="fab fa-github fa-lg"></i>
+        <a class="text-dark mr-1" href="https://github.com/majd21">
+          <i class="fab fa-github fa-lg"></i>
         </a>
-        <a class="text-dark mr-1" href="">
+        <a
+          class="text-dark mr-1"
+          href="https://www.linkedin.com/in/majid-nayeb-0206a6201/"
+        >
           <i class="fab fa-linkedin fa-lg"></i>
         </a>
       </div>
-      <hr>
-      <p>&copy;	2020 Majid Nayeb.All Rights Reserved</p>
+      <hr />
+      <p>&copy; 2020 Majid Nayeb.All Rights Reserved</p>
     </footer>
   </body>
   <script

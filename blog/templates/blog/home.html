@@ -6,12 +6,12 @@
   <p>I am a web developer</p>
 </div>
 
-<div class="container mt-3 mb-4">
+<div id="project-section" class="container mt-3 mb-4">
   <h2>My Projects</h2>
   <hr>
   <div class="row mt-2">
     {% for post in posts %}
-    <div class="col-md-6 col-sm-12 mb-3">
+    <div id="card" class="col-md-6 col-sm-12 mb-3">
       <div class="card border-primary" style="width: 18rem">
         <div class="project-img" style="height: 300px; width: 430px; text-align: center;">
           <img style="width: auto; height: 100%;" class="card-img-top img-thumbnail img-fluid" src="{{post.image.url}}" alt="{{post.title}}" />

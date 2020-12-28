@@ -2,7 +2,6 @@
 #showcase {
     height: 100vh !important;
     background-image: url('../img/showcase2.jpg');
-    background-size: cover;
     background-position: 0;
     background-position-y: -400px;
     color: #333;
@@ -29,8 +28,17 @@
 }
 
 #editModal {
-    width: 1000px !important;
+    width: 100% !important;
 }
+#modal-dialog {
+    width: 800px !important;
+    margin-right: 45% !important;
+}
+#modal-content {
+    width: 800px !important;
+    
+}
+
 
 .showimgblog {
     height: 500px !important;
@@ -52,4 +60,31 @@
 .project-img img {
     height: 100%;
     width: auto;
+}
+#footer {
+
+}
+
+
+@media only screen and (max-width: 800px) {
+    #showcase {
+        background-repeat: no-repeat !important;
+        background-size: 1300px;
+        height: 400px !important;
+    }
+    #showcase h1 {
+        font-size: 40px !important;
+    }
+    #showcase p {
+        font-size: 20px;
+    }
+    #project-section h2 {
+        font-size: 40px;
+    }
+    #project-section #card {
+        margin-left: 25px;
+    }
+    #modal-content {
+        width: 80vw !important; 
+    }
 }
